@@ -1,53 +1,6 @@
 import time
 import threading
 
-class timer:
-    def __init__(self):
-        self.stop_flag = True
-        self.thread = None
-        self.counter = 0
-    def counterlist(self):
-        return self.counterlist
-
-    def _run(self):
-
-        while not self.stop_flag:
-            time.sleep(1)
-            self.counter += 1
-            print(self.counter)
-
-    def start(self):
-
-        if self.thread is None or not self.start:
-            self.stop_flag = False
-            self.thread = threading.Thread(target=self._run)
-            self.thread.start()
-            print("Timer Started")
-        else:
-            print("Timer already running")
-
-    def stop(self):
-
-        if self.thread and self.thread.is_alive():
-            self.stop_flag = True
-            self.thread.join()
-            print("Timer Stopped")
-            global Counter
-            Counter = self.counter
-            self.counterlist = []
-            if self.stop_flag is True:
-                self.counterlist.append(self.counter)
-
-        else:
-            print("Timer not running")
-
-timer = timer()
-
-timer.start()
-time.sleep(3)
-timer.stop()
-Counter = timer.counterlist
-
 
 def TimeFormat(Counter=None):
 
@@ -113,8 +66,56 @@ def TimeFormat(Counter=None):
             OutputSec = f"0{OutputSec}"
         print(f"Time Elapsed: {OutputMin}:{OutputSec}")
 
+class timer:
+    def __init__(self):
+        self.stop_flag = True
+        self.thread = None
+        self.counter = 0
+    def counterlist(self):
+        return self.counterlist
 
-TimeFormat(Counter=Counter)
+    def _run(self):
+
+        while not self.stop_flag:
+            time.sleep(1)
+            self.counter += 1
+            print(self.counter)
+
+    def start(self):
+
+        if self.thread is None or not self.start:
+            self.stop_flag = False
+            self.thread = threading.Thread(target=self._run)
+            self.thread.start()
+            print("Timer Started")
+        else:
+            print("Timer already running")
+
+    def stop(self):
+
+        if self.thread and self.thread.is_alive():
+            self.stop_flag = True
+            self.thread.join()
+            print("Timer Stopped")
+            global Counter
+            Counter = self.counter
+            self.counterlist = []
+
+            if self.stop_flag is True:
+
+                self.counterlist.append(self.counter)
+                Counter = self.counterlist
+
+                TimeFormat(Counter)
+
+        else:
+            print("Timer not running")
+
+timer = timer()
+timer.start()
+time.sleep(3)
+timer.stop()
+
 
 
 
