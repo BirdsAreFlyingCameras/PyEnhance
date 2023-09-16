@@ -1,6 +1,6 @@
 import time
 import threading
-
+from Stamps import *
 
 def TimeFormat(Counter=None):
 
@@ -22,7 +22,7 @@ def TimeFormat(Counter=None):
             OutputMin = int(OutputMin)
             OutputHours = (int(OutputMin / 60))
             OutputMin = (OutputMin - (int(OutputMin / 60) * 60))
-            print(f"{OutputHours}:{OutputMin}:{OutputSec}")
+            print(f"{Stamp.Output} {Stamp.Output} {OutputHours}:{OutputMin}:{OutputSec}")
         else:
             OutputMin = f"{Counter[:DotIndex]}"
             OutputSec = f"{Counter[DotIndex + 1:]}"
@@ -31,8 +31,8 @@ def TimeFormat(Counter=None):
             OutputMin = (OutputMin + (int(OutputSec / 60)))
             OutputSec = (OutputSec - (int(OutputSec / 60) * 60))
             if len(str(OutputSec)) == 1:
-                OutputSec = f"0{OutputSec}"
-            print(f"Time Elapsed: {OutputMin}:{OutputSec}")
+                OutputSec = f"{OutputSec}"
+            print(f"{Stamp.Output} Time Elapsed: {OutputMin}:{OutputSec}")
     if DotIndex == 3 or 4:
         #print("DotIndex: 3")
         OutputMin = f"{Counter[:DotIndex]}"
@@ -44,14 +44,14 @@ def TimeFormat(Counter=None):
             OutputMin = (OutputMin - (int(OutputMin / 60) * 60))
             if len(OutputSec) == 1:
                 OutputSec = f"0{OutputSec}"
-            print(f"Time Elapsed: {OutputHours}:{OutputMin}:{OutputSec}")
-            print(f"Time Elapsed: {OutputHours} Hours {OutputMin} Minutes {OutputSec} Seconds")
+            print(f"{Stamp.Output} Time Elapsed: {OutputHours}:{OutputMin}:{OutputSec}")
+            print(f"{Stamp.Output} Time Elapsed: {OutputHours} Hours {OutputMin} Minutes {OutputSec} Seconds")
     if len(TestCounter) == 1:
         #print("Len: 1")
-        print(f"Time Elapsed: {TestCounter} seconds")
+        print(f"{Stamp.Output} Time Elapsed: {TestCounter} seconds")
     if len(TestCounter) == 2:
         #print("Len: 2")
-        print(f"Time Elapsed: {TestCounter} seconds")
+        print(f"{Stamp.Output} Time Elapsed: {TestCounter} seconds")
     if len(TestCounter) == 3:
         #print("Len: 3")
         OutputMin = f"{Counter[:DotIndex]}"
@@ -64,7 +64,7 @@ def TimeFormat(Counter=None):
         OutputSec = (OutputSec - (int(OutputSec / 60) * 60))
         if len(str(OutputSec)) == 1:
             OutputSec = f"0{OutputSec}"
-        print(f"Time Elapsed: {OutputMin}:{OutputSec}")
+        print(f"{Stamp.Output} Time Elapsed: {OutputMin}:{OutputSec}")
 
 class timer:
     def __init__(self):
@@ -79,7 +79,6 @@ class timer:
         while not self.stop_flag:
             time.sleep(1)
             self.counter += 1
-            print(self.counter)
 
     def start(self):
 
@@ -87,16 +86,16 @@ class timer:
             self.stop_flag = False
             self.thread = threading.Thread(target=self._run)
             self.thread.start()
-            print("Timer Started")
+            print(f"{Stamp.Info} Timer Started")
         else:
-            print("Timer already running")
+            print(f"{Stamp.Error} Timer already running")
 
     def stop(self):
 
         if self.thread and self.thread.is_alive():
             self.stop_flag = True
             self.thread.join()
-            print("Timer Stopped")
+            print(f"{Stamp.Info} Timer Stopped")
             global Counter
             Counter = self.counter
             self.counterlist = []
@@ -109,12 +108,10 @@ class timer:
                 TimeFormat(Counter)
 
         else:
-            print("Timer not running")
+            print(f"{Stamp.Error} Timer not running")
 
 timer = timer()
-timer.start()
-time.sleep(3)
-timer.stop()
+
 
 
 

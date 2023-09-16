@@ -4,9 +4,6 @@ from enum import Enum
 #global CG, CR, CY, CW, CC, CM, TB
 #global Info, Warn, Output, Input, Error
 
-
-
-
 class Color(Enum):
 
     init(autoreset=True)
@@ -19,7 +16,6 @@ class Color(Enum):
 
     def __str__(self):
         return self.value
-
 class Type(Enum):
     Bright = Style.BRIGHT
 
