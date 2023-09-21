@@ -36,7 +36,7 @@ class Loading:
             self.thread = t.Thread(target=self.SpinStart, args=(Text, TextBack))
             self.thread.start()
 
-    def BarStart(self, WaitTime):
+    def BarStart(self, PrintSpeed):
 
         columns = shutil.get_terminal_size()
 
@@ -62,27 +62,27 @@ class Loading:
                 if self.StopFlag: break
 
                 print(f'|', end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
             for i in Buffer:
 
                 if self.StopFlag: break
 
                 print(f'{i}', end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
             for i in Text:
 
                 if self.StopFlag: break
 
                 print(f"{i}", end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
             for i in Buffer:
                 if self.StopFlag: break
 
                 print(f'{i}', end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
             for x in range(int(SidesWidth / 2)):
 
@@ -90,7 +90,7 @@ class Loading:
 
 
                 print(f'|', end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
             Text = 'Loading'
 
@@ -105,12 +105,12 @@ class Loading:
                 if self.StopFlag: break
 
                 print('\b', end="", flush=True)
-                time.sleep(WaitTime)
+                time.sleep(PrintSpeed)
 
-    def Bar(self, WaitTime):
+    def Bar(self, PrintSpeed):
 
         if self.thread is None or not self.BarStart:
-            self.thread = t.Thread(target=self.BarStart, args=(WaitTime,))
+            self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed,))
             self.thread.start()
 
     def StatsStart(self, List):
