@@ -141,11 +141,3 @@ class Loading:
             self.thread.start()
 
 Loading = Loading()
-
-ExampleList = [1,2,3,4,5,6,7,8]
-
-Loading.Spin(Text='Loading')
-
-time.sleep(5)
-
-Loading.Stop()
