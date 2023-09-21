@@ -66,7 +66,7 @@ def TimeFormat(Counter=None):
             OutputSec = f"0{OutputSec}"
         print(f"{Stamp.Output} Time Elapsed: {OutputMin}:{OutputSec}")
 
-class timer:
+class Timer:
     def __init__(self):
         self.stop_flag = True
         self.thread = None
@@ -80,9 +80,9 @@ class timer:
             time.sleep(1)
             self.counter += 1
 
-    def start(self):
+    def Start(self):
 
-        if self.thread is None or not self.start:
+        if self.thread is None or not self.Start:
             self.stop_flag = False
             self.thread = threading.Thread(target=self._run)
             self.thread.start()
@@ -90,7 +90,7 @@ class timer:
         else:
             print(f"{Stamp.Error} Timer already running")
 
-    def stop(self):
+    def Stop(self):
 
         if self.thread and self.thread.is_alive():
             self.stop_flag = True
@@ -110,9 +110,7 @@ class timer:
         else:
             print(f"{Stamp.Error} Timer not running")
 
-timer = timer()
-
-
+Timer = Timer()
 
 
 

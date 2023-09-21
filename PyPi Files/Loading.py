@@ -96,9 +96,9 @@ class Loading:
 
             Buffer = ' ' * 4
 
-            SidesWidth = (Width - len(Text) + len(Buffer))
+            NewRange = Width + len(Buffer*2)
 
-            NewRange = SidesWidth + Width
+
 
             for i in range(int(NewRange)):
 
@@ -106,7 +106,6 @@ class Loading:
 
                 print('\b', end="", flush=True)
                 time.sleep(WaitTime)
-
 
     def Bar(self, WaitTime):
 
@@ -143,4 +142,10 @@ class Loading:
 
 Loading = Loading()
 
+ExampleList = [1,2,3,4,5,6,7,8]
 
+Loading.Spin(Text='Loading')
+
+time.sleep(5)
+
+Loading.Stop()
