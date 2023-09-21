@@ -15,16 +15,18 @@ class Loading:
         self.thread = None
 
     def Stop(self):
-
         if self.thread.is_alive():
             self.StopFlag = True
             self.thread.join()
 
     def SpinStart(self, Text, TextBack):
-        for i in Rotate:
-            print(f'{Text} {i}', end="", flush=True)
-            time.sleep(0.4)
-            print(f'{TextBack}', end="", flush=True)
+
+        while self.StopFlag is False:
+            for i in Rotate:
+                if self.StopFlag: break
+                print(f'{Text} {i}', end="", flush=True)
+                time.sleep(0.4)
+                print(f'{TextBack}', end="", flush=True)
 
     def Spin(self, Text):
         Text = Text
@@ -34,7 +36,7 @@ class Loading:
             self.thread = t.Thread(target=self.SpinStart, args=(Text, TextBack))
             self.thread.start()
 
-    def BarStart(self):
+    def BarStart(self, WaitTime):
 
         columns = shutil.get_terminal_size()
 
@@ -44,34 +46,52 @@ class Loading:
 
         Range = Width
 
+        while self.StopFlag is False:
 
+            if self.StopFlag:
+                break
 
-        try:
             BufferBackSpace = '\b' * (Width)
             print(f"{BufferBackSpace}", end="")
-
             Text = 'Loading'
-
             Buffer = ' ' * 4
-
             SidesWidth = (Width - len(Text) + len(Buffer))
 
+            for x in range(int(SidesWidth / 2)):
 
-            for x in range(int(SidesWidth/2)):
+                if self.StopFlag: break
+
                 print(f'|', end="", flush=True)
-                time.sleep(0.1)
+                time.sleep(WaitTime)
 
-            print(f"{Buffer}{Text}{Buffer}", end="", flush=True)
+            for i in Buffer:
+
+                if self.StopFlag: break
+
+                print(f'{i}', end="", flush=True)
+                time.sleep(WaitTime)
+
+            for i in Text:
+
+                if self.StopFlag: break
+
+                print(f"{i}", end="", flush=True)
+                time.sleep(WaitTime)
+
+            for i in Buffer:
+                if self.StopFlag: break
+
+                print(f'{i}', end="", flush=True)
+                time.sleep(WaitTime)
 
             for x in range(int(SidesWidth / 2)):
+
+                if self.StopFlag: break
+
+
                 print(f'|', end="", flush=True)
-                time.sleep(0.1)
+                time.sleep(WaitTime)
 
-            #print(f"{BufferBackSpace}", end="")
-
-
-
-        finally:
             Text = 'Loading'
 
             Buffer = ' ' * 4
@@ -82,36 +102,38 @@ class Loading:
 
             for i in range(int(NewRange)):
 
-                print('\b', end="", flush=True)
-                time.sleep(0.1)
+                if self.StopFlag: break
 
-    def Bar(self):
+                print('\b', end="", flush=True)
+                time.sleep(WaitTime)
+
+
+    def Bar(self, WaitTime):
+
         if self.thread is None or not self.BarStart:
-            self.thread = t.Thread(target=self.BarStart)
+            self.thread = t.Thread(target=self.BarStart, args=(WaitTime,))
             self.thread.start()
 
     def StatsStart(self, List):
 
+        ListLen = len(List)
+        for i in range(ListLen + 1):
+            CounterVal = Counter.Count
+            Counter.Add()
             ListLen = len(List)
-            for i in range(ListLen+1):
-                CounterVal = Counter.Counter.Count
-                Counter.Counter.Add()
-                ListLen = len(List)
-                Progress = CounterVal / ListLen * 100
-                Progress = str(Progress)
+            Progress = CounterVal / ListLen * 100
+            Progress = str(Progress)
 
+            if CounterVal == ListLen:
+                OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:5]}%)"
+                TextBack = '\b' * len(OutputString)
+                print(f"{TextBack}{OutputString}", end="", flush=True)
 
-                if CounterVal == ListLen:
-                    OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:5]}%)"
-                    TextBack = '\b' * len(OutputString)
-                    print(f"{TextBack}{OutputString}", end="", flush=True)
+            else:
 
-                else:
-
-                    OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:4]}%)"
-                    TextBack = '\b' * len(OutputString)
-                    print(f"{TextBack}{OutputString}", end="", flush=True)
-
+                OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:4]}%)"
+                TextBack = '\b' * len(OutputString)
+                print(f"{TextBack}{OutputString}", end="", flush=True)
 
     def Stats(self, List):
 
@@ -119,7 +141,6 @@ class Loading:
             self.thread = t.Thread(target=self.StatsStart, args=(List,))
             self.thread.start()
 
-
 Loading = Loading()
 
-Loading.Bar()
+
