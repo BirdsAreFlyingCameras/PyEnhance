@@ -113,31 +113,49 @@ class Loading:
             self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed,))
             self.thread.start()
 
-    def StatsStart(self, List):
+    def StatsStart(self, List, ListCounter):
+        CounterVal = ListCounter.Count
 
         ListLen = len(List)
-        for i in range(ListLen + 1):
-            CounterVal = Counter.Count
-            Counter.Add()
-            ListLen = len(List)
-            Progress = CounterVal / ListLen * 100
-            Progress = str(Progress)
 
-            if CounterVal == ListLen:
-                OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:5]}%)"
-                TextBack = '\b' * len(OutputString)
-                print(f"{TextBack}{OutputString}", end="", flush=True)
+        Progress = CounterVal / ListLen * 100
 
-            else:
+        Progress = str(Progress)
 
-                OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:4]}%)"
-                TextBack = '\b' * len(OutputString)
-                print(f"{TextBack}{OutputString}", end="", flush=True)
+        if CounterVal == ListLen:
+            OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:5]}%)"
+            TextBack = '\b' * len(OutputString)
+            print(f"{TextBack}{OutputString}", end="", flush=True)
 
-    def Stats(self, List):
 
-        if self.thread is None or not self.StatsStart:
-            self.thread = t.Thread(target=self.StatsStart, args=(List,))
+        else:
+            OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:4]}%)"
+            TextBack = '\b' * len(OutputString)
+            print(f"{TextBack}{OutputString}", end="", flush=True)
+
+    def Stats(self, List, ListCounter):
+
+        if self.thread is None or not self.thread.is_alive():
+            self.thread = t.Thread(target=self.StatsStart, args=(List, ListCounter,))
             self.thread.start()
 
 Loading = Loading()
+
+
+"""
+
+===EXAMPLES===
+
+Stats:
+    TestList = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,4,5,1,2,3,4,5]
+    
+    ListCounter = Counter
+    
+    for i in range(len(TestList)):
+    
+        time.sleep(1)
+    
+        ListCounter.Add()
+    
+        Loading.Stats(List=TestList, ListCounter=ListCounter)
+"""
