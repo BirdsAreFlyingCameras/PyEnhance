@@ -114,21 +114,44 @@ class WebTools:
 WebTools = WebTools()
 
 
+"""
 
-WebTools.Refactor(URL='www.google.com')
-print(WebTools.URLHTTPS)
-print(WebTools.URLHTTP)
-
-if WebTools.CheckTLDS(URL='www.google.com') == False:
-    print('TLDS is invalid')
-else:
-    print('TLDS is valid')
+===EXAMPLES===
 
 
-if WebTools.HTTPcheck(URL='www.google.com') == True:
-    print('HTTP is Valid')
+Command:
+    WebTools.Refactor(URL='www.google.com') # Refactors URL by adding http and https
+
+Example:
+    WebTools.Refactor(URL='www.google.com')
+
+    print(WebTools.URLHTTPS)
+    print(WebTools.URLHTTP)
 
 
-if WebTools.HTTPScheck(URL='www.google.com') == True:
-    print('HTTPS is Valid')
+Command: 
+    WebTools.HTTPcheck(URL='www.google.com') # Checks if URL using http is valid  
+    
+Example:
+    if WebTools.HTTPcheck(URL='www.google.com') == True:
+        print('HTTP is Valid')
 
+
+Command:
+    WebTools.HTTPScheck(URL='www.google.com') # Checks if URL using https is valid
+
+Example:  
+    if WebTools.HTTPScheck(URL='www.google.com') == True:
+        print('HTTPS is Valid')
+
+
+Command:
+    WebTools.CheckTLDS(URL='www.google.com') # Checks if the URLs TLDS is valid 
+
+Example:
+    if WebTools.CheckTLDS(URL='www.google.com') == False: 
+        print('TLDS is invalid')
+    else:
+        print('TLDS is valid')
+
+"""
