@@ -2,6 +2,11 @@ import time
 import threading as t
 import shutil
 from PyEnhance import Counter
+import sys
+
+import cursor
+
+cursor.hide()
 
 Counter = Counter.Counter
 
@@ -49,44 +54,62 @@ class Loading:
         while self.StopFlag is False:
 
             if self.StopFlag:
+                print(Width)
+
                 break
 
             BufferBackSpace = '\b' * (Width)
             print(f"{BufferBackSpace}", end="")
             Text = 'Loading'
             Buffer = ' ' * 4
-            SidesWidth = (Width - len(Text) + len(Buffer))
+            SidesWidth = (Width - len(Text) - len(Buffer*2))
 
             for x in range(int(SidesWidth / 2)):
 
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
+                    break
 
                 print(f'|', end="", flush=True)
                 time.sleep(PrintSpeed)
 
             for i in Buffer:
 
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
+                    break
 
                 print(f'{i}', end="", flush=True)
                 time.sleep(PrintSpeed)
 
             for i in Text:
 
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
+
+                    break
 
                 print(f"{i}", end="", flush=True)
                 time.sleep(PrintSpeed)
 
             for i in Buffer:
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
+                    break
 
                 print(f'{i}', end="", flush=True)
                 time.sleep(PrintSpeed)
 
             for x in range(int(SidesWidth / 2)):
 
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
+                    break
 
 
                 print(f'|', end="", flush=True)
@@ -102,9 +125,14 @@ class Loading:
 
             for i in range(int(NewRange)):
 
-                if self.StopFlag: break
+                if self.StopFlag:
+                    #print(f"Window Width: {Width}")
+                    #print(f"Side Width: {SidesWidth}")
 
-                print('\b', end="", flush=True)
+                    break
+
+                sys.stdout.write('\b \b')
+                sys.stdout.flush()
                 time.sleep(PrintSpeed)
 
     def Bar(self, PrintSpeed):
@@ -113,30 +141,30 @@ class Loading:
             self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed,))
             self.thread.start()
 
-    def StatsStart(self, List, ListCounter):
-        CounterVal = ListCounter.Count
+    def StatsStart(self, Range, Counter):
+        CounterVal = Counter.Count
 
-        ListLen = len(List)
 
-        Progress = CounterVal / ListLen * 100
+        Progress = CounterVal / Range * 100
 
         Progress = str(Progress)
 
-        if CounterVal == ListLen:
-            OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:5]}%)"
+        if CounterVal == Range:
+            OutputString = f"Progress: {CounterVal}/{Range}({Progress[:5]}%)"
             TextBack = '\b' * len(OutputString)
             print(f"{TextBack}{OutputString}", end="", flush=True)
 
 
         else:
-            OutputString = f"Progress: {CounterVal}/{ListLen}({Progress[:4]}%)"
+            OutputString = f"Progress: {CounterVal}/{Range}({Progress[:4]}%)"
             TextBack = '\b' * len(OutputString)
             print(f"{TextBack}{OutputString}", end="", flush=True)
 
-    def Stats(self, List, ListCounter):
-
+    def Stats(self, Range):
+        CounterObject = Counter
+        CounterObject.Add()
         if self.thread is None or not self.thread.is_alive():
-            self.thread = t.Thread(target=self.StatsStart, args=(List, ListCounter,))
+            self.thread = t.Thread(target=self.StatsStart, args=(Range, CounterObject,))
             self.thread.start()
 
 Loading = Loading()
@@ -147,15 +175,30 @@ Loading = Loading()
 ===EXAMPLES===
 
 Stats:
-    TestList = [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,4,5,1,2,3,4,5]
-    
-    ListCounter = Counter
-    
-    for i in range(len(TestList)):
-    
-        time.sleep(1)
-    
-        ListCounter.Add()
-    
-        Loading.Stats(List=TestList, ListCounter=ListCounter)
+
+ExampleList = [1, 2, 3, 4, 5]
+
+for i in range(len(ExampleList)):
+    time.sleep(0.5)
+
+    Loading.Stats(Range=len(ExampleList))
+
+
+Bar:
+
+	print("\n"*5)
+
+	Loading.Bar(PrintSpeed=0.1)
+
+	time.sleep(60)
+
+	Loading.Stop()
+	
+	
+Spin:
+
+	Loading.Spin(Text="Loading")
+	time.sleep(30)
+	Loading.Stop()
+
 """

@@ -15,6 +15,7 @@ class Color(Enum):
 
     def __str__(self):
         return self.value
+
 class Type(Enum):
     Bright = Style.BRIGHT
     Normal = Style.NORMAL
@@ -22,28 +23,27 @@ class Type(Enum):
 
     def __str__(self):
         return self.value
-class Stamp(Enum):
 
-    Info = f'{Color.Green}{Type.Bright}[INFO]{Fore.RESET}'
-    Warn = f'{Color.WarningYellow}{Type.Bright}[WARRING]{Fore.RESET}'
-    Output = f'{Color.Cyan}{Type.Bright}[OUTPUT]{Fore.RESET}'
-    Input = f'{Color.Magenta}{Type.Bright}[INPUT]{Fore.RESET}'
-    Error = f'{Color.Red}{Type.Bright}[ERROR]{Fore.RESET}'
+class Banner(Enum):
+
+    Info = f'{Color.Green}{Type.Bright}===| INFO |==={Fore.RESET}'
+    Warn = f'{Color.WarningYellow}{Type.Bright}===| WARRING |==={Fore.RESET}'
+    Output = f'{Color.Cyan}{Type.Bright}===| OUTPUT |==={Fore.RESET}'
+    Input = f'{Color.Magenta}{Type.Bright}===| INPUT |==={Fore.RESET}'
+    Error = f'{Color.Red}{Type.Bright}===| ERROR |==={Fore.RESET}'
 
     def __str__(self):
         return self.value
-
-
 
 """
 
 === Examples ===
 
 print("\n")
-print(Stamp.Info)
-print(Stamp.Warn)
-print(Stamp.Input)
-print(Stamp.Output)
-print(Stamp.Error)
+print(Banner.Info)
+print(Banner.Warn)
+print(Banner.Input)
+print(Banner.Output)
+print(Banner.Error)
 
 """

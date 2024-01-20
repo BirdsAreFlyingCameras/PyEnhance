@@ -1,4 +1,3 @@
-
 class Counter:
 
     def __init__(self):
@@ -11,4 +10,14 @@ class Counter:
 
 Counter = Counter()
 
+"""
 
+=== Examples ===
+
+Counter = Counter()
+
+for i in range(10):
+    Counter.Add()
+print(Counter.Count)
+
+"""

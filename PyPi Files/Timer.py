@@ -113,4 +113,14 @@ class Timer:
 Timer = Timer()
 
 
+"""
 
+=== Examples ===
+
+Timer.Start()
+
+time.sleep(30)
+
+Timer.Stop()
+
+"""
