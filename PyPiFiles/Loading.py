@@ -54,8 +54,6 @@ class Loading:
         while self.StopFlag is False:
 
             if self.StopFlag:
-                print(Width)
-
                 break
 
             BufferBackSpace = '\b' * (Width)
@@ -67,8 +65,7 @@ class Loading:
             for x in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
+
                     break
 
                 print(f'|', end="", flush=True)
@@ -77,8 +74,6 @@ class Loading:
             for i in Buffer:
 
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
                     break
 
                 print(f'{i}', end="", flush=True)
@@ -87,9 +82,6 @@ class Loading:
             for i in Text:
 
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
-
                     break
 
                 print(f"{i}", end="", flush=True)
@@ -97,8 +89,6 @@ class Loading:
 
             for i in Buffer:
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
                     break
 
                 print(f'{i}', end="", flush=True)
@@ -107,10 +97,7 @@ class Loading:
             for x in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
                     break
-
 
                 print(f'|', end="", flush=True)
                 time.sleep(PrintSpeed)
@@ -126,9 +113,6 @@ class Loading:
             for i in range(int(NewRange)):
 
                 if self.StopFlag:
-                    #print(f"Window Width: {Width}")
-                    #print(f"Side Width: {SidesWidth}")
-
                     break
 
                 sys.stdout.write('\b \b')
@@ -167,7 +151,6 @@ class Loading:
             self.thread = t.Thread(target=self.StatsStart, args=(Range, CounterObject,))
             self.thread.start()
 
-Loading = Loading()
 
 
 """

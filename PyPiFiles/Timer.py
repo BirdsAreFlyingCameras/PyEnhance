@@ -3,29 +3,38 @@ import threading
 
 def TimeFormat(Counter=None, Form=None):
 
-    Counter = Counter[0] / 60
+    Counter = Counter[0] / 60 # Divides the int representing the time elapsed in seconds stored in the Counter list at index 0 by 60 turning it to a float type
     Counter = str(Counter)
     DotIndex = Counter.index('.')
 
     OutputMin = f"{Counter[:DotIndex]}"
     OutputSec = f"{Counter[DotIndex:]}"
 
-    if DotIndex == 1 and not (round(float(OutputSec) * 60)) > 60 and int(OutputMin) == 0:  # Checks if output seconds in total are less then a min
+    if DotIndex == 1 and not (round(float(OutputSec) * 60)) > 60 and int(OutputMin) == 0:  # Triggers if output seconds in total are less then a min
 
         if OutputSec == ".":
             OutputSec = "0"
         else:
             OutputSec = (round(float(OutputSec) * 60))
 
+        # ===| Start Output Code |===
+
         if Form == "Long":
-            print(f'{OutputSec} seconds')
+            # Long Form Output Code
+            if OutputSec > 1: SecText = "seconds"
+            else: SecText = "second"
+            print(f'{OutputSec} {SecText}')
+
         else:
+            # Short Form Output Code
             if len(str(OutputSec)) == 1:
-                OutputSec = f"0{OutputSec}"  # Adds a zero as the first digit if there is no first digit
+                OutputSec = f"0{OutputSec}"
             print(f'00:{OutputSec}')
 
+        # ===| End of Output Code |===
 
-    if DotIndex == 2 or int(OutputMin) > 0 and DotIndex == 1:
+
+    if DotIndex == 2 or int(OutputMin) > 0 and DotIndex == 1: # triggers if DotIndex is 2 or OutputMin's value is grater then 1 and DotIndex is 1
         if OutputSec == ".":
             OutputSec = "0"
         else:
@@ -33,41 +42,63 @@ def TimeFormat(Counter=None, Form=None):
 
         OutputMin = ((int(OutputMin) + (int(OutputSec / 60))))
 
-        if int(OutputMin) < 60:  # Checks if output min is less then an hour
+        if int(OutputMin) < 60:  # Triggers if output min sum is less then an hour
 
+            # ===| Start Output Code |===
 
             if Form == "Long":
+                # Long Form Output Code
+                if OutputMin > 1: MinText = "minutes"
+                else: MinText = "minute"
+                if OutputSec > 1: SecText = "seconds"
+                else: SecText = "second"
+
                 if OutputMin != 0 and OutputSec == 0:
-                    print(f'{OutputMin} minutes')
+                    print(f'{OutputMin} {MinText}')
                 elif OutputMin == 0 and OutputSec != 0:
-                    print(f'{OutputSec} seconds')
+                    print(f'{OutputSec} {SecText}')
                 else:
-                    print(f'{OutputMin} minutes {OutputSec} seconds')
+                    print(f'{OutputMin} {MinText} {OutputSec} {SecText}')
+
             else:
+                # Short Form Output Code
                 if len(str(OutputSec)) == 1: OutputSec = f"0{OutputSec}"
-                if len(str(OutputMin)) == 1: OutputMin = f"0{OutputMin}"
                 print(f'{OutputMin}:{OutputSec}')
 
-        else:
+            # ===| End of Output Code |===
+
+        else: # Triggers if out min total is more sum an hour
+
             OutputHours = (int(OutputMin / 60))
             OutputMin = (OutputMin - (int(OutputMin / 60) * 60))
 
+            # ===| Start Output Code |===
 
             if Form == "Long":
+                # Long Form Output Code
+                if OutputHours > 1: HourText = "hours"
+                else: HourText = "hour"
+                if OutputMin > 1: MinText = "minutes"
+                else: MinText = "minute"
+                if OutputSec > 1: SecText = "seconds"
+                else: SecText = "second"
+
                 if OutputMin == 0 and OutputSec == 0:
-                    print(f'{OutputHours} hours')
+                    print(f'{OutputHours} {HourText}')
                 elif OutputMin != 0 and OutputSec == 0:
-                    print(f'{OutputHours} hours {OutputMin} minutes')
+                    print(f'{OutputHours} {HourText} {OutputMin} {MinText}')
                 elif OutputMin == 0 and OutputSec != 0:
-                    print(f'{OutputHours} hours {OutputSec} Seconds')
+                    print(f'{OutputHours} {HourText} {OutputSec} {SecText}')
                 else:
-                    print(f'{OutputHours} hours {OutputMin} minutes {OutputSec} seconds')
+                    print(f'{OutputHours} {HourText} {OutputMin} {MinText} {OutputSec} {SecText}')
 
             else:
+                # Short Form Output Code
                 if len(str(OutputSec)) == 1: OutputSec = f"0{OutputSec}"
                 if len(str(OutputMin)) == 1: OutputMin = f"0{OutputMin}"
-                if len(str(OutputHours)) == 1: OutputHours = f"0{OutputHours}"
                 print(f'{OutputHours}:{OutputMin}:{OutputSec}')
+
+            # ===| End of Output Code |===
 
     if DotIndex == 3 or DotIndex == 4:
 
@@ -80,27 +111,38 @@ def TimeFormat(Counter=None, Form=None):
         OutputMin = ((OutputMin + (int(OutputSec / 60))))
         OutputSec = (round(float(OutputSec) * 60))
 
-        if OutputMin >= 60:
+        if OutputMin >= 60: # Checks if out min sum is less then or equal to an hour
             OutputMin = int(OutputMin)
             OutputHours = (int(OutputMin / 60))
             OutputMin = (OutputMin - (int(OutputMin / 60) * 60))
 
+            # ===| Start of Output Code |===
 
             if Form == "Long":
+                # Long Form Output Code
+
+                if OutputHours > 1: HourText = "hours"
+                else: HourText = "hour"
+                if OutputMin > 1: MinText = "minutes"
+                else: MinText = "minute"
+                if OutputSec > 1: SecText = "seconds"
+                else: SecText = "second"
+
                 if OutputMin == 0 and OutputSec == 0:
-                    print(f'{OutputHours} hours')
+                    print(f'{OutputHours} {HourText}')
                 elif OutputMin != 0 and OutputSec == 0:
-                    print(f'{OutputHours} hours {OutputMin} minutes')
+                    print(f'{OutputHours} {HourText} {OutputMin} {MinText}')
                 elif OutputMin == 0 and OutputSec != 0:
-                    print(f'{OutputHours} hours{OutputSec} Seconds')
+                    print(f'{OutputHours} {HourText} {OutputSec} {SecText}')
                 else:
-                    print(f'{OutputHours} hours {OutputMin} minutes {OutputSec} seconds')
+                    print(f'{OutputHours} {HourText} {OutputMin} {MinText} {OutputSec} {SecText}')
             else:
+                # Short Form Output Code
                 if len(str(OutputSec)) == 1: OutputSec = f"0{OutputSec}"
                 if len(str(OutputMin)) == 1: OutputMin = f"0{OutputMin}"
-                if len(str(OutputHours)) == 1: OutputHours = f"0{OutputHours}"
                 print(f'{OutputHours}:{OutputMin}:{OutputSec}')
 
+            # ===| End of Output Code |===
 
 class Timer:
     def __init__(self):
@@ -145,9 +187,6 @@ class Timer:
                 TimeFormat(self.counterlist, Form=self.Form)
         else:
             print(f"[ERROR] Timer not running")
-
-
-Timer = Timer()
 
 """
 
