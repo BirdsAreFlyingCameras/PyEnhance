@@ -6,7 +6,7 @@ Version: Beta 0.1.3
 
 PyEnhance is a python library with essential tools for any python project.
 
-The modules included in this library are the following:
+The modules included in this library are the following
 
 * Stamps
 * Banners
