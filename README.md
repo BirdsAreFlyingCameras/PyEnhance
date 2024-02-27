@@ -42,7 +42,7 @@ The following section provides all the information needed for the use of the mod
     <br />
 </i>
 
-## Stamps
+## Stamps        
 
 The Stamps module consist of pre-made status decorators meant for use in a CLI interface.
 
@@ -55,8 +55,7 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Error
 
 
-### Usage {id="Stamps-Usage"}
-
+### Usage
 
 **Importing the Library**
 
@@ -94,10 +93,10 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 
 **Visual Output**
 
-| Operating System|Output on OS|
-| Windows 10 | ![Windows.png](Windows.png)|
-| Linux (Ubuntu) | ![Linux.png](Linux.png)|
-|---------|---|
+| Loading Indicator Type | Example (Windows CMD)                   |
+|------------------------|-----------------------------------------|
+| Windows 10 | ![Windows.png](Images/Windows.png)|
+| Linux (Ubuntu) | ![Linux.png](Images/Linux.png)|
 
 
 
@@ -159,8 +158,8 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 
 | Operating System | Output on OS                  |
 |------------------|-------------------------------|
-| Windows 10       | ![Windows.png](Windows_1.png) |
-| Linux (Ubuntu)   | ![Linux.png](Linux_1.png)     |
+| Windows 10       | ![Windows.png](Images/Windows_1.png) |
+| Linux (Ubuntu)   | ![Linux.png](Images/Linux_1.png)     |
 
 
 
@@ -173,9 +172,9 @@ The Loading module consist of different visual loading indicators.
 
 | Loading Indicator Type | Example (Windows CMD)                   |
 |------------------------|-----------------------------------------|
-| Spin                   | ![Loading-Spin.gif](Loading-Spin.gif)   |
-| Bar                    | ![Loading-bar.gif](Loading-bar.gif)     |
-| Stats                  | ![Loading-stats.gif](Loading-stats.gif) |
+| Spin                   | ![Loading-Spin.gif](Images/Loading-Spin.gif)   |
+| Bar                    | ![Loading-bar.gif](Images/Loading-bar.gif)     |
+| Stats                  | ![Loading-stats.gif](Images/Loading-stats.gif) |
 
 
 <i>
@@ -317,8 +316,8 @@ This module as the name indicates is a timer it outputs the elapsed time in one 
 
 | Output Forms    | Example (Windows CMD)                     |
 |-----------------|-------------------------------------------|
-| Short (default) | ![AllShortImages.png](AllShortImages.png) |
-| Long            | ![AllLongImages.png](AllLongImages.png)   |
+| Short (default) | ![AllShortImages.png](Images/AllShortImages.png) |
+| Long            | ![AllLongImages.png](Images/AllLongImages.png)   |
 
 
 <i>
