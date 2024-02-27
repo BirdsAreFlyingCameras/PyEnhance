@@ -1,13 +1,24 @@
 import requests as r
 import socket as s
 
+class DotDict:
+    def __init__(self, dictionary):
+        self.__dict__.update(dictionary)
+
+    def __getattr__(self, item):
+        return self.__dict__.get(item)
+
+    def __setattr__(self, key, value):
+        self.__dict__[key] = value
+
+
+# You can add more functions or classes here if needed
+
+
 class WebTools:
-
     def __init__(self):
+        self.StatusCodes = self.StatusCodes()
 
-        self.PositiveStatusCodes = [200, 201, 202, 203, 204, 205, 206,
-                                    300, 301, 302, 303, 304, 305, 307,
-                                    308, 401]
         self.DirsChecked = []
 
         self.RequestHeaders = {
@@ -19,6 +30,16 @@ class WebTools:
 
         self.URLHTTP = str
         self.URLHTTPS = str
+
+    class StatusCodes:
+        def __init__(self):
+            self.Informational = [100, 101, 102, 103]
+            self.Success = [200, 201, 202, 203, 204, 205, 206, 207, 208, 226]
+            self.Redirection = [300, 301, 302, 303, 304, 305, 306, 307, 308]
+            self.ClientError = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417,
+                                418, 421, 422, 423, 424, 425, 426, 428, 429, 431, 451]
+            self.ServerError = [500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511]
+
 
     def FetchTLDs(self):
 
@@ -49,19 +70,6 @@ class WebTools:
             return False
         else:
             return True
-
-    def IsIP(self, URL=None):
-
-        try:
-            s.inet_aton(URL)
-            IsURLAnIPOutput = True
-            if IsURLAnIPOutput == True:
-                return True
-
-        except s.error:
-            IsURLAnIPOutput = False
-            if IsURLAnIPOutput == False:
-                return False
 
     def RefactorHTTP(self, URL=None):
 
@@ -178,16 +186,6 @@ Example:
         print('TLDS is valid')
 
 Command:
-    WebTools.IsIP(URL="www.google.com")
-
-
-Example:
-    if WebTools.IsIP(URL="www.google.com") == True:
-        print(f"URL is an IP")
-    else:
-        print(f"URL is not an ip")
-
-Command:
     WebTools.RequestHeaders
 
 
@@ -235,12 +233,6 @@ URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
 
 print(f"URL HTTPS: {URLHTTPS}")
 print(f"URL HTTP: {URLHTTP}")
-
-
-if WebTools.IsIP(URL="www.google.com") == True:
-    print(f"URL is an IP")
-else:
-    print(f"URL is not an ip")
 
 
 r = requests.get(URLHTTPS, headers=WebTools.RequestHeaders)

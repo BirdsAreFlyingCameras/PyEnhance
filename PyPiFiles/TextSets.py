@@ -88,7 +88,7 @@ for i in (TextSet.SpecialCharacters):
         print(f'Word Found: {i} at index {TestList.index(i)}')
 
 
-TestList2 = ['John', "Bob", "Dick", "DiCkBob"]
+TestList2 = ['John', "Bob", "ass", "john"]
 
 for badword in (TextSet.CussWords):
     for word in TestList2:
