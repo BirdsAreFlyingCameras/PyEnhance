@@ -2,7 +2,7 @@
 
 ## Overview
 
-Version: Beta 0.1.2
+Version: Beta 0.1.3
 
 PyEnhance is a python library with essential tools for any python project.
 
@@ -127,13 +127,12 @@ Display Stamp
 * Input
 * Output
 * Error
-
-
-**Usage**
-
+  
 <i>
 <br \>
 </i>
+
+**Usage**
 
 **Importing the Library**
 
@@ -212,6 +211,10 @@ The Loading module consist of different visual loading indicators.
 **Importing the Library**
 
     from PyEnhance import Loading
+    
+<i>
+<br />
+</i>
 
 ### Spin
 
@@ -236,6 +239,10 @@ To start the loading animation:
 To stop the loading animation:
     
     Loading.Stop()
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -280,6 +287,10 @@ To start the loading animation:
 To stop the loading animation:
 
     Loading.Stop()
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -323,6 +334,10 @@ To using the loading animation the function placed in a loop.
         # Your Code Here
 
         Loading.Stats(Range=20)
+	
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -350,9 +365,11 @@ To using the loading animation the function placed in a loop.
 
 This module as the name indicates is a timer it outputs the elapsed time in one of two formats determined by the user.
 
+<i>
+<br />
+</i>
 
 **Types Of Output**
-
 
 | Output Forms    | Example (Windows CMD)                     |
 |-----------------|-------------------------------------------|
@@ -375,7 +392,7 @@ This module as the name indicates is a timer it outputs the elapsed time in one 
 Form: Sets the type of output received by user. If no user input is provided Short is used by default.
 
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     Timer = Timer.Timer()
 
@@ -395,7 +412,10 @@ Long form output
     # Your Code Here
     
     Timer.Stop()
-
+    
+<i>
+<br />
+</i>
 
 **Examples**
 
@@ -480,6 +500,10 @@ Set alies for easy usage and readability
 Checking TLD
    
     if WebTools.ValidTLD(URL='www.google.com') == True:
+    
+<i>
+<br />
+</i>
 
 **Example**
     
@@ -514,6 +538,10 @@ Set alies for easy usage and readability
 Refactor URL
 
     URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -541,13 +569,17 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Refactor URL:
+Refactor URL
 
     URLHTTPS = WebTools.RefactorHTTPS(URL='www.google.com')
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -582,6 +614,10 @@ Set alies for easy usage and readability
 Check if http is valid
 
     if WebTools.HTTPcheck(URL='www.google.com') == True:
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -614,6 +650,10 @@ Set alies for easy usage and readability
 Check if http is valid
 
     if WebTools.HTTPScheck(URL='www.google.com') == True:
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -645,6 +685,10 @@ Make web request
     import requests # Any web request lib will work as long as it supports headers
  
     r = requests.get("www.google.com", headers=WebTools.RequestHeaders)
+    
+<i>
+<br />
+</i>
 
 **Example**
 
@@ -689,6 +733,9 @@ Calling Category's
     WebTools.StatusCodes.ClientError
     WebTools.StatusCodes.ServerError
     
+<i> 
+<br />
+</i>
 
 **Example**
 
@@ -714,7 +761,7 @@ Calling Category's
 
 This module contains list of words/charters that can be used for filtering.
 
-The text sets currently included are:
+The text sets currently included
 
 - Special Characters 
 - Cuss Words
@@ -739,6 +786,10 @@ Calling text sets
 
     TextSet.SpecialCharacters
     TextSet.CussWords
+    
+<i>
+<br />
+</i>
 
 **Examples**
 
@@ -798,6 +849,9 @@ or
 
     print(Counter1.Total
 
+<i>
+<br />
+</i>
 
 **Example**
 
