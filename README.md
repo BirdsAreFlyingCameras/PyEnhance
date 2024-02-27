@@ -1,4 +1,3 @@
-
 # PyEnhance
 
 ## Overview
@@ -28,25 +27,27 @@ To install PyEnhance just run the following command in your terminal of choice.
 
     pip install PyEnhance
 
-
 <i>
-    <br />
+    <br \>
 </i>
 
 ## Modules
 
 The following section provides all the information needed for the use of the modules included in this library.
 
-
 <i>
-    <br />
+    <br \>
 </i>
 
 ## Stamps        
 
 The Stamps module consist of pre-made status decorators meant for use in a CLI interface.
 
-**Stamps Available:**
+<i>
+    <br \>
+</i>
+
+**Stamps Available**
 
 * Info
 * Warring
@@ -54,22 +55,33 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Output
 * Error
 
+<i>
+<br \>
+</i>
 
-### Usage
+**Usage**
 
 **Importing the Library**
 
     from PyEnhance import Stamps
 
 <i>
-    <br />
+<br />
 </i>
 
 **Using the stamps**
 
-    Stamp = Stamps.Stamp # sets Stamp as an alias for Stamps.Stamp, enabling easier and more readable in the code.
+Set alies for easy usage and readability
 
-    print(Stamp.<StampName>)
+    Stamp = Stamps.Stamp
+
+<i>
+<br \>
+</i>
+
+Display Stamp
+
+	print(Stamp.<StampName>)
 
 <i>
 <br />
@@ -108,7 +120,7 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 
 ## Banners
 
-**Banners Available:**
+**Banners Available**
 
 * Info
 * Warring
@@ -117,20 +129,32 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Error
 
 
-### Usage {id="Banners-Usage"}
+**Usage**
 
+<i>
+<br \>
+</i>
 
 **Importing the Library**
 
     from PyEnhance import Banners
 
 <i>
-    <br />
+<br \>
 </i>
 
 **Using the Banners**
 
-    Banner = Banners.Banner # sets Banner as an alias for Banner.Banner, enabling easier and more readable in the code.
+Set alies for easy usage and readability
+
+
+    Banner = Banners.Banner 
+
+<i>
+<br \>
+</i>
+
+Display Banner
 
     print(Banner.<BannerName>)
 
@@ -162,7 +186,11 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 | Linux (Ubuntu)   | ![Linux.png](Images/Linux_1.png)     |
 
 
-
+<i>
+    <br />
+    <br />
+    <br />
+</i>
 
 ## Loading
 
@@ -181,9 +209,6 @@ The Loading module consist of different visual loading indicators.
 <br />
 </i>
 
-
-### Usage
-
 **Importing the Library**
 
     from PyEnhance import Loading
@@ -193,6 +218,10 @@ The Loading module consist of different visual loading indicators.
 **Parameters**
 
 Text: The text that appears in front of the spinner
+
+<i>
+<br \>
+</i>
 
 **Usage**
 
@@ -234,6 +263,10 @@ To stop the loading animation:
 
 PrintSpeed: The time in seconds in between new bar segments being printed.
 
+<i>
+<br \>
+</i>
+
 **Usage**
 
 Set alies for easy usage and readability:
@@ -273,6 +306,10 @@ To stop the loading animation:
 
 Range: Specifies the total range or the maximum count of the progress bar.
 
+<i>
+<br \>
+</i>
+
 **Usage**
 
 Set alies for easy usage and readability:
@@ -301,8 +338,11 @@ To using the loading animation the function placed in a loop.
     
         Loading.Stats(Range=len(ExampleList))
 
+
 <i>
-<br />
+    <br />
+    <br />
+    <br />
 </i>
 
 
@@ -324,7 +364,7 @@ This module as the name indicates is a timer it outputs the elapsed time in one 
 <br />
 </i>
 
-### Usage
+**Usage**
 
 **Importing the Library**
 
@@ -339,7 +379,7 @@ Set alies for easy usage and readability:
 
     Timer = Timer.Timer()
 
-Short form output:
+Short form output
     
     Timer.Start()
     
@@ -348,7 +388,7 @@ Short form output:
     Timer.Stop()
     
     
-Long form output:
+Long form output
     
     Timer.Start(Form="Long")
     
@@ -359,7 +399,7 @@ Long form output:
 
 **Examples**
 
-Short Form Output:
+Short Form Output
 
     from PyEnhance import Timer
 
@@ -374,7 +414,7 @@ Short Form Output:
     Timer.Stop()
 
 
-Long Form Output:
+Long Form Output
 
     from PyEnhance import Timer
 
@@ -388,6 +428,11 @@ Long Form Output:
     
     Timer.Stop()
 
+<i>
+    <br />
+    <br />
+    <br />
+</i>
 
 ## WebTools
 
@@ -409,12 +454,14 @@ This module consist of tools relating to web requests and validation of URLs
 </i>
 
 
-### Usage
-
 **Importing the library**
 
     from PyEnhance import WebTools
 
+<i>
+    <br />
+    <br />
+</i>
 
 ### ValidTLD
 
@@ -426,12 +473,12 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Checking TLD:
-    
+Checking TLD
+   
     if WebTools.ValidTLD(URL='www.google.com') == True:
 
 **Example**
@@ -444,7 +491,11 @@ Checking TLD:
         print('TLDS is valid')
     else:
         print('TLDS is invalid')
-
+        
+<i>
+    <br />
+    <br />
+</i>
 
 ### RefactorHTTP
 
@@ -456,11 +507,11 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Refactor URL:
+Refactor URL
 
     URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
 
@@ -473,7 +524,12 @@ Refactor URL:
 
     URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
 
-    print(f"URL Refactored to HTTP: {URLHTTP}")
+    print(f"URL Refactored to HTTP: {URLHTTP}")  # Will print: URL Refactored to HTTP: http://www.google.comv
+
+<i>
+    <br />
+    <br />
+</i>
 
 ### RefactorHTTPS
 
@@ -502,10 +558,14 @@ Refactor URL:
 
     URLHTTPS = WebTools.RefactorHTTPS(URL='www.google.com')
 
-    print(f"URL Refactored to HTTPS: {URLHTTPS}")
+    print(f"URL Refactored to HTTPS: {URLHTTPS}") # Will print: URL Refactored to HTTPS: https://www.google.com
 
+<i>
+    <br />
+    <br />
+</i>
 
-## HTTPcheck
+### HTTPcheck
 
 Refactors a given URL to a http version and checks if it's valid
 
@@ -515,11 +575,11 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Check if http is valid:
+Check if http is valid
 
     if WebTools.HTTPcheck(URL='www.google.com') == True:
 
@@ -532,8 +592,12 @@ Check if http is valid:
     if WebTools.HTTPcheck(URL='www.google.com') == True:
         print('HTTP is Valid')
 
+<i>
+    <br />
+    <br />
+</i>
 
-## HTTPScheck
+### HTTPScheck
 
 Refactors a given URL to a https version and checks if it's valid
 
@@ -543,11 +607,11 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Check if http is valid:
+Check if http is valid
 
     if WebTools.HTTPScheck(URL='www.google.com') == True:
 
@@ -560,20 +624,25 @@ Check if http is valid:
     if WebTools.HTTPScheck(URL='www.google.com') == True:
         print('HTTP is Valid')
 
-## RequestHeaders
+<i>
+    <br />
+    <br />
+</i>
+
+### RequestHeaders
 
 Basic headers for making web requests
 
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
-Make web request:
+Make web request
 
-    import requests # Any web request lib will work aslong as it supports headers
+    import requests # Any web request lib will work as long as it supports headers
  
     r = requests.get("www.google.com", headers=WebTools.RequestHeaders)
 
@@ -592,10 +661,9 @@ Make web request:
 <i>
     <br />
     <br />
-    <br />
 </i>
 
-## StatusCodes
+### StatusCodes
 
 This module consist of http/https status codes sorted by category for handling web request responses
 
@@ -609,7 +677,7 @@ This module consist of http/https status codes sorted by category for handling w
 
 **Usage**
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     WebTools = WebTools.WebTools()
 
@@ -639,6 +707,7 @@ Calling Category's
 <i>
 <br \>
 <br \>
+<br \>
 </i>
 
 ## TextSets
@@ -652,8 +721,9 @@ The text sets currently included are:
 
 I plan on adding many more in the future.
 
-
-
+<i>
+<br \>
+</i>
 
 **Usage**
 
@@ -661,7 +731,7 @@ I plan on adding many more in the future.
 
     from PyEnhance import TextSets
 
-Set alies for easy usage and readability:
+Set alies for easy usage and readability
 
     TextSet = TextSets.TextSet
 
@@ -708,15 +778,19 @@ This module like the name implies is a counter.
 
     from PyPiFiles import Counter
 
-Set alies for easy usage and readability:
+<i>
+<br \>
+</i>
+
+Set alies for easy usage and readability
 
     Counter1 = Counter.Counter()  # Alies name can not be Counter
 
-To add to the counter do 
+Adding to the counter
     
     Counter1.Add()
 
-To get the current total do
+Getting the current total
 
     Total = Counter1.Total
 
