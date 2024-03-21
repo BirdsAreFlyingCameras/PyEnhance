@@ -105,7 +105,7 @@ Display Stamp
 
 **Visual Output**
 
-| Operating System | Example                   |
+| Operating System | Output on OS                    |
 |------------------------|-----------------------------------------|
 | Windows 10 | ![Windows.png](Images/Windows.png)|
 | Linux (Ubuntu) | ![Linux.png](Images/Linux.png)|
