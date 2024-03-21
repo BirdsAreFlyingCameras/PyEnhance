@@ -793,7 +793,7 @@ Calling text sets
 
 **Examples**
 
-    from PyPiFiles import TextSets
+    from PyEnhance import TextSets
 
     TextSet = TextSets.TextSet
     
@@ -827,7 +827,7 @@ This module like the name implies is a counter.
 
 **Importing the library**
 
-    from PyPiFiles import Counter
+    from PyEnhance import Counter
 
 <i>
 <br \>
@@ -855,7 +855,7 @@ or
 
 **Example**
 
-    from PyPiFiles import Counter
+    from PyEnhance import Counter
     
     Counter1 = Counter.Counter()
     Counter2 = Counter.Counter()
