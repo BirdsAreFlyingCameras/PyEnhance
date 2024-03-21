@@ -105,7 +105,7 @@ Display Stamp
 
 **Visual Output**
 
-| Loading Indicator Type | Example (Windows CMD)                   |
+| Operating System | Example                   |
 |------------------------|-----------------------------------------|
 | Windows 10 | ![Windows.png](Images/Windows.png)|
 | Linux (Ubuntu) | ![Linux.png](Images/Linux.png)|
