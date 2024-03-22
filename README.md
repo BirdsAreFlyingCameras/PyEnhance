@@ -2,7 +2,7 @@
 
 ## Overview
 
-Version: Beta 0.1.3
+Version: Beta 0.1.3.1
 
 PyEnhance is a python library with essential tools for any python project.
 
