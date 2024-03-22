@@ -18,6 +18,7 @@ class Loading:
     def __init__(self):
         self.StopFlag = False
         self.thread = None
+        self.CounterObject = Counter()
 
     def Stop(self):
         if self.thread.is_alive():
@@ -60,12 +61,11 @@ class Loading:
             print(f"{BufferBackSpace}", end="")
             Text = 'Loading'
             Buffer = ' ' * 4
-            SidesWidth = (Width - len(Text) - len(Buffer*2))
+            SidesWidth = (Width - len(Text) - len(Buffer * 2))
 
             for x in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
-
                     break
 
                 print(f'|', end="", flush=True)
@@ -106,9 +106,7 @@ class Loading:
 
             Buffer = ' ' * 4
 
-            NewRange = Width + len(Buffer*2)
-
-
+            NewRange = Width + len(Buffer * 2)
 
             for i in range(int(NewRange)):
 
@@ -126,8 +124,7 @@ class Loading:
             self.thread.start()
 
     def StatsStart(self, Range, Counter):
-        CounterVal = Counter.Count
-
+        CounterVal = Counter.Total
 
         Progress = CounterVal / Range * 100
 
@@ -145,12 +142,10 @@ class Loading:
             print(f"{TextBack}{OutputString}", end="", flush=True)
 
     def Stats(self, Range):
-        CounterObject = Counter
-        CounterObject.Add()
+        self.CounterObject.Add()
         if self.thread is None or not self.thread.is_alive():
-            self.thread = t.Thread(target=self.StatsStart, args=(Range, CounterObject,))
+            self.thread = t.Thread(target=self.StatsStart, args=(Range, self.CounterObject,))
             self.thread.start()
-
 
 
 """
@@ -176,8 +171,8 @@ Bar:
 	time.sleep(60)
 
 	Loading.Stop()
-	
-	
+
+
 Spin:
 
 	Loading.Spin(Text="Loading")
