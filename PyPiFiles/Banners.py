@@ -24,7 +24,15 @@ class Type(Enum):
     def __str__(self):
         return self.value
 
-class Banner(Enum):
+class Banner():
+
+    Info = f'{Color.Green}{Type.Bright}━━━━━┫ INFO ┣━━━━━{Fore.RESET}'
+    Warring = f'{Color.WarningYellow}{Type.Bright}━━━━━┫ WARRING ┣━━━━━{Fore.RESET}'
+    Output = f'{Color.Cyan}{Type.Bright}━━━━━┫ OUTPUT ┣━━━━━{Fore.RESET}'
+    Input = f'{Color.Magenta}{Type.Bright}━━━━━┫ INPUT ┣━━━━━{Fore.RESET}'
+    Error = f'{Color.Red}{Type.Bright}━━━━━┫ ERROR ┣━━━━━{Fore.RESET}'
+
+class BannerAscii():
 
     Info = f'{Color.Green}{Type.Bright}===| INFO |==={Fore.RESET}'
     Warring = f'{Color.WarningYellow}{Type.Bright}===| WARRING |==={Fore.RESET}'
