@@ -3,7 +3,7 @@ import threading as t
 import shutil
 from PyEnhance import Counter
 import sys
-
+from prettycli import color
 import cursor
 
 cursor.hide()
@@ -19,37 +19,57 @@ class Loading:
         self.thread = None
         self.CounterObject = Counter()
 
+        self.StyleRetro = [(97,187,70), (253,184,39), (245,130,31), (224,58,62)]
+
     def Stop(self):
         if self.thread.is_alive():
             self.StopFlag = True
             self.thread.join()
 
-    def SpinStart(self, Text, TextBack, Ascii=False):
+    def SpinStart(self, Text, TextBack, Ascii=False, Style=None):
 
         self.AsciiRotate = ['|', '/', '-', '\\', '|', '/', '-', '\\']
         self.UniRotate = ['│', '╱', '─', '╲', '│', '╱', '─', '╲']
 
         while self.StopFlag is False:
 
-            if Ascii == False:
-                for i in self.UniRotate:
-                    if self.StopFlag: break
-                    print(f'{Text} {i}', end="", flush=True)
-                    time.sleep(0.4)
-                    print(f'{TextBack}', end="", flush=True)
-            else:
-                for i in self.AsciiRotate:
-                    if self.StopFlag: break
-                    print(f'{Text} {i}', end="", flush=True)
-                    time.sleep(0.4)
-                    print(f'{TextBack}', end="", flush=True)
+            if Style == "Retro":
 
-    def Spin(self, Text, Ascii=False):
+                if Ascii == False:
+                    for Char, Color in zip(self.UniRotate, self.StyleRetro):
+                        if self.StopFlag: break
+
+                        Char = color(Char).rgb_fg(*Color)
+                        print(f'{Text} {Char}', end="", flush=True)
+                        time.sleep(0.4)
+                        print(f'{TextBack}', end="", flush=True)
+                else:
+                    for Char, Color in zip(self.AsciiRotate, self.StyleRetro):
+                        if self.StopFlag: break
+                        Char = color(Char).rgb_fg(*Color)
+                        print(f'{Text} {Char}', end="", flush=True)
+                        time.sleep(0.4)
+                        print(f'{TextBack}', end="", flush=True)
+            else:
+                if Ascii == False:
+                    for i in self.UniRotate:
+                        if self.StopFlag: break
+                        print(f'{Text} {i}', end="", flush=True)
+                        time.sleep(0.4)
+                        print(f'{TextBack}', end="", flush=True)
+                else:
+                    for i in self.AsciiRotate:
+                        if self.StopFlag: break
+                        print(f'{Text} {i}', end="", flush=True)
+                        time.sleep(0.4)
+                        print(f'{TextBack}', end="", flush=True)
+
+    def Spin(self, Text, Ascii=False, Style=None):
         Text = Text
         textlen = len(Text)
         TextBack = '\b' * (textlen + 2)
         if self.thread is None or not self.SpinStart:
-            self.thread = t.Thread(target=self.SpinStart, args=(Text, TextBack, Ascii))
+            self.thread = t.Thread(target=self.SpinStart, args=(Text, TextBack, Ascii, Style))
             self.thread.start()
 
     def BarStart(self, PrintSpeed, Ascii=False):
