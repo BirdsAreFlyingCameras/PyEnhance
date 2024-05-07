@@ -11,7 +11,6 @@ cursor.hide()
 Counter = Counter.Counter
 
 
-
 class Loading:
 
     def __init__(self):
@@ -184,6 +183,38 @@ class Loading:
         self.CounterObject.Add()
         if self.thread is None or not self.thread.is_alive():
             self.thread = t.Thread(target=self.StatsStart, args=(Range, self.CounterObject,))
+            self.thread.start()
+
+
+    def BounceStart(self, Text:str, Speed:int or float):
+
+        Text = Text.lower()
+
+        Textlist = list(Text.lower())
+
+        while self.StopFlag is False:
+
+            for Char in Textlist:
+
+                if self.StopFlag:
+                    break
+
+                TextBack = '\b' * len(Text)
+                BounceCharIndex = Text.index(Char)
+
+                Textlist[BounceCharIndex] = str(Textlist[BounceCharIndex]).upper()
+
+                String = ''.join(Textlist)
+
+                print(f"{TextBack}{String}", end="", flush=True)
+
+                time.sleep(Speed)
+
+                Textlist[BounceCharIndex] = str(Textlist[BounceCharIndex]).lower()
+
+    def Bounce(self, Text:str, Speed:int or float):
+        if self.thread is None or not self.thread.is_alive():
+            self.thread = t.Thread(target=self.BounceStart, args=(Text, Speed,))
             self.thread.start()
 
 
