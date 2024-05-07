@@ -40,7 +40,7 @@ def TimeFormat(Counter=None, Form=None):
         else:
             OutputSec = (round(float(OutputSec) * 60))
 
-        OutputMin = ((int(OutputMin) + (int(OutputSec / 60))))
+        OutputMin = (int(OutputMin) + (int(OutputSec / 60)))
 
         if int(OutputMin) < 60:  # Triggers if output min sum is less then an hour
 
@@ -108,7 +108,7 @@ def TimeFormat(Counter=None, Form=None):
         OutputMin = int(OutputMin)
         OutputSec = float(OutputSec)
 
-        OutputMin = ((OutputMin + (int(OutputSec / 60))))
+        OutputMin = (OutputMin + (int(OutputSec / 60)))
         OutputSec = (round(float(OutputSec) * 60))
 
         if OutputMin >= 60: # Checks if out min sum is less then or equal to an hour
@@ -172,7 +172,7 @@ class Timer:
             self.thread.start()
 
         else:
-            print(f"[ERROR] Timer already running")
+            print("[ERROR] Timer already running")
 
     def Stop(self):
         if self.thread and self.thread.is_alive():
@@ -186,7 +186,7 @@ class Timer:
 
                 TimeFormat(self.counterlist, Form=self.Form)
         else:
-            print(f"[ERROR] Timer not running")
+            print("[ERROR] Timer not running")
 
 """
 

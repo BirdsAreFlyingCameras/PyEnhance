@@ -26,7 +26,9 @@ class Loading:
             self.StopFlag = True
             self.thread.join()
 
-    def SpinStart(self, Text, TextBack, Ascii=False, Style=None):
+
+
+    def SpinStart(self, Text:str, TextBack, Ascii:bool=False, Style:str=None):
 
         self.AsciiRotate = ['|', '/', '-', '\\', '|', '/', '-', '\\']
         self.UniRotate = ['│', '╱', '─', '╲', '│', '╱', '─', '╲']
@@ -64,15 +66,16 @@ class Loading:
                         time.sleep(0.4)
                         print(f'{TextBack}', end="", flush=True)
 
-    def Spin(self, Text, Ascii=False, Style=None):
-        Text = Text
+    def Spin(self, Text:str, Ascii:bool=False, Style:str=None):
         textlen = len(Text)
         TextBack = '\b' * (textlen + 2)
         if self.thread is None or not self.SpinStart:
             self.thread = t.Thread(target=self.SpinStart, args=(Text, TextBack, Ascii, Style))
             self.thread.start()
 
-    def BarStart(self, PrintSpeed, Ascii=False):
+
+
+    def BarStart(self, PrintSpeed:int, Ascii:bool=False):
 
         columns = shutil.get_terminal_size()
 
@@ -80,28 +83,26 @@ class Loading:
 
         Width = Width.columns
 
-        Range = Width
-
         while self.StopFlag is False:
 
             if self.StopFlag:
                 break
 
-            BufferBackSpace = '\b' * (Width)
+            BufferBackSpace = '\b' * Width
             print(f"{BufferBackSpace}", end="")
             Text = 'Loading'
             Buffer = ' ' * 4
             SidesWidth = (Width - len(Text) - len(Buffer * 2))
 
-            for x in range(int(SidesWidth / 2)):
+            for _ in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
                     break
                 if Ascii == False:
-                    print(f'▍', end="", flush=True)
+                    print('▍', end="", flush=True)
                     time.sleep(PrintSpeed)
                 else:
-                    print(f'|', end="", flush=True)
+                    print('|', end="", flush=True)
                     time.sleep(PrintSpeed)
 
             for i in Buffer:
@@ -127,20 +128,17 @@ class Loading:
                 print(f'{i}', end="", flush=True)
                 time.sleep(PrintSpeed)
 
-            for x in range(int(SidesWidth / 2)):
+            for _ in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
                     break
 
                 if Ascii == False:
-                    print(f'▍', end="", flush=True)
+                    print('▍', end="", flush=True)
                     time.sleep(PrintSpeed)
                 else:
-                    print(f'|', end="", flush=True)
+                    print('|', end="", flush=True)
                     time.sleep(PrintSpeed)
-
-
-            Text = 'Loading'
 
             Buffer = ' ' * 4
 
@@ -155,13 +153,16 @@ class Loading:
                 sys.stdout.flush()
                 time.sleep(PrintSpeed)
 
-    def Bar(self, PrintSpeed, Ascii):
+    def Bar(self, PrintSpeed:int, Ascii:bool=False):
 
         if self.thread is None or not self.BarStart:
             self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed, Ascii))
             self.thread.start()
 
-    def StatsStart(self, Range, Counter):
+
+
+    def StatsStart(self, Range:int, Counter):
+
         CounterVal = Counter.Total
 
         Progress = CounterVal / Range * 100
@@ -179,7 +180,7 @@ class Loading:
             TextBack = '\b' * len(OutputString)
             print(f"{TextBack}{OutputString}", end="", flush=True)
 
-    def Stats(self, Range):
+    def Stats(self, Range:int):
         self.CounterObject.Add()
         if self.thread is None or not self.thread.is_alive():
             self.thread = t.Thread(target=self.StatsStart, args=(Range, self.CounterObject,))
