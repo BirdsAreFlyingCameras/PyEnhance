@@ -58,7 +58,7 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Error
 
 
-### Usage {id="Stamps-Usage"}
+### Usage
 
 
 **Importing the Library**
@@ -121,7 +121,7 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Error
 
 
-### Usage {id="Banners-Usage"}
+### Usage
 
 
 **Importing the Library**
