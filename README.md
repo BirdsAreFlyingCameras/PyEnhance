@@ -101,7 +101,6 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 |------------------|------------------------------|
 | Windows 10 | ![Windows.png](Images/Windows.png) |
 | Linux (Ubuntu) | ![Linux.png](Images/Linux.png) |
-|---------| ---                          |
 
 
 
