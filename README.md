@@ -99,7 +99,6 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 
 | Operating System | Output on OS                 |
 |------------------|------------------------------|
-| Operating System| Output on OS                 |
 | Windows 10 | ![Windows.png](Images/Windows.png) |
 | Linux (Ubuntu) | ![Linux.png](Images/Linux.png) |
 |---------| ---                          |
