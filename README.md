@@ -1,3 +1,4 @@
+
 # PyEnhance
 
 ## Overview
@@ -9,7 +10,7 @@ Version: Beta 0.1.3.1
 
 PyEnhance is a python library with essential tools for any python project.
 
-The modules included in this library are the following
+The modules included in this library are the following:
 
 * Stamps
 * Banners
@@ -30,27 +31,25 @@ To install PyEnhance just run the following command in your terminal of choice.
 
     pip install PyEnhance
 
+
 <i>
-    <br \>
+    <br />
 </i>
 
 ## Modules
 
 The following section provides all the information needed for the use of the modules included in this library.
 
+
 <i>
-    <br \>
+    <br />
 </i>
 
-## Stamps        
+## Stamps
 
 The Stamps module consist of pre-made status decorators meant for use in a CLI interface.
 
-<i>
-    <br \>
-</i>
-
-**Stamps Available**
+**Stamps Available:**
 
 * Info
 * Warring
@@ -58,33 +57,23 @@ The Stamps module consist of pre-made status decorators meant for use in a CLI i
 * Output
 * Error
 
-<i>
-<br \>
-</i>
 
-**Usage**
+### Usage {id="Stamps-Usage"}
+
 
 **Importing the Library**
 
     from PyEnhance import Stamps
 
 <i>
-<br />
+    <br />
 </i>
 
 **Using the stamps**
 
-Set alies for easy usage and readability
+    Stamp = Stamps.Stamp # sets Stamp as an alias for Stamps.Stamp, enabling easier and more readable in the code.
 
-    Stamp = Stamps.Stamp
-
-<i>
-<br \>
-</i>
-
-Display Stamp
-
-	print(Stamp.<StampName>)
+    print(Stamp.<StampName>)
 
 <i>
 <br />
@@ -108,10 +97,10 @@ Display Stamp
 
 **Visual Output**
 
-| Operating System | Output on OS                    |
-|------------------------|-----------------------------------------|
-| Windows 10 | ![Windows.png](Images/Windows.png)|
-| Linux (Ubuntu) | ![Linux.png](Images/Linux.png)|
+| Operating System|Output on OS|
+| Windows 10 | ![Windows.png](Windows.png)|
+| Linux (Ubuntu) | ![Linux.png](Linux.png)|
+|---------|---|
 
 
 
@@ -123,40 +112,29 @@ Display Stamp
 
 ## Banners
 
-**Banners Available**
+**Banners Available:**
 
 * Info
 * Warring
 * Input
 * Output
 * Error
-  
-<i>
-<br \>
-</i>
 
-**Usage**
+
+### Usage {id="Banners-Usage"}
+
 
 **Importing the Library**
 
     from PyEnhance import Banners
 
 <i>
-<br \>
+    <br />
 </i>
 
 **Using the Banners**
 
-Set alies for easy usage and readability
-
-
-    Banner = Banners.Banner 
-
-<i>
-<br \>
-</i>
-
-Display Banner
+    Banner = Banners.Banner # sets Banner as an alias for Banner.Banner, enabling easier and more readable in the code.
 
     print(Banner.<BannerName>)
 
@@ -184,15 +162,11 @@ Display Banner
 
 | Operating System | Output on OS                  |
 |------------------|-------------------------------|
-| Windows 10       | ![Windows.png](Images/Windows_1.png) |
-| Linux (Ubuntu)   | ![Linux.png](Images/Linux_1.png)     |
+| Windows 10       | ![Windows.png](Windows_1.png) |
+| Linux (Ubuntu)   | ![Linux.png](Linux_1.png)     |
 
 
-<i>
-    <br />
-    <br />
-    <br />
-</i>
+
 
 ## Loading
 
@@ -202,32 +176,27 @@ The Loading module consist of different visual loading indicators.
 
 | Loading Indicator Type | Example (Windows CMD)                   |
 |------------------------|-----------------------------------------|
-| Spin                   | ![Loading-Spin.gif](Images/Loading-Spin.gif)   |
-| Bar                    | ![Loading-bar.gif](Images/Loading-bar.gif)     |
-| Stats                  | ![Loading-stats.gif](Images/Loading-stats.gif) |
+| Spin                   | ![Loading-Spin.gif](Loading-Spin.gif)   |
+| Bar                    | ![Loading-bar.gif](Loading-bar.gif)     |
+| Stats                  | ![Loading-stats.gif](Loading-stats.gif) |
 
 
 <i>
 <br />
 </i>
+
+
+### Usage
 
 **Importing the Library**
 
     from PyEnhance import Loading
-    
-<i>
-<br />
-</i>
 
 ### Spin
 
 **Parameters**
 
 Text: The text that appears in front of the spinner
-
-<i>
-<br \>
-</i>
 
 **Usage**
 
@@ -242,10 +211,6 @@ To start the loading animation:
 To stop the loading animation:
     
     Loading.Stop()
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -273,10 +238,6 @@ To stop the loading animation:
 
 PrintSpeed: The time in seconds in between new bar segments being printed.
 
-<i>
-<br \>
-</i>
-
 **Usage**
 
 Set alies for easy usage and readability:
@@ -290,10 +251,6 @@ To start the loading animation:
 To stop the loading animation:
 
     Loading.Stop()
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -320,10 +277,6 @@ To stop the loading animation:
 
 Range: Specifies the total range or the maximum count of the progress bar.
 
-<i>
-<br \>
-</i>
-
 **Usage**
 
 Set alies for easy usage and readability:
@@ -337,10 +290,6 @@ To using the loading animation the function placed in a loop.
         # Your Code Here
 
         Loading.Stats(Range=20)
-	
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -356,11 +305,8 @@ To using the loading animation the function placed in a loop.
     
         Loading.Stats(Range=len(ExampleList))
 
-
 <i>
-    <br />
-    <br />
-    <br />
+<br />
 </i>
 
 
@@ -368,23 +314,21 @@ To using the loading animation the function placed in a loop.
 
 This module as the name indicates is a timer it outputs the elapsed time in one of two formats determined by the user.
 
-<i>
-<br />
-</i>
 
 **Types Of Output**
 
+
 | Output Forms    | Example (Windows CMD)                     |
 |-----------------|-------------------------------------------|
-| Short (default) | ![AllShortImages.png](Images/AllShortImages.png) |
-| Long            | ![AllLongImages.png](Images/AllLongImages.png)   |
+| Short (default) | ![AllShortImages.png](AllShortImages.png) |
+| Long            | ![AllLongImages.png](AllLongImages.png)   |
 
 
 <i>
 <br />
 </i>
 
-**Usage**
+### Usage
 
 **Importing the Library**
 
@@ -395,11 +339,11 @@ This module as the name indicates is a timer it outputs the elapsed time in one 
 Form: Sets the type of output received by user. If no user input is provided Short is used by default.
 
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     Timer = Timer.Timer()
 
-Short form output
+Short form output:
     
     Timer.Start()
     
@@ -408,54 +352,44 @@ Short form output
     Timer.Stop()
     
     
-Long form output
+Long form output:
     
     Timer.Start(Form="Long")
     
     # Your Code Here
     
     Timer.Stop()
-    
-<i>
-<br />
-</i>
+
 
 **Examples**
 
-Short Form Output
+Short Form Output:
 
+    import time
     from PyEnhance import Timer
 
     Timer = Timer.Timer()
     
     Timer.Start()
     
-    count = 0
-    while count < 30000000:
-    count += 1
+    time.sleep(10)
     
     Timer.Stop()
 
 
-Long Form Output
+Long Form Output:
 
+    import time
     from PyEnhance import Timer
 
     Timer = Timer.Timer()
     
     Timer.Start(From="Long")
     
-    count = 0
-    while count < 30000000:
-    count += 1
-    
+    time.sleep(10)
+
     Timer.Stop()
 
-<i>
-    <br />
-    <br />
-    <br />
-</i>
 
 ## WebTools
 
@@ -477,14 +411,12 @@ This module consist of tools relating to web requests and validation of URLs
 </i>
 
 
+### Usage
+
 **Importing the library**
 
     from PyEnhance import WebTools
 
-<i>
-    <br />
-    <br />
-</i>
 
 ### ValidTLD
 
@@ -496,17 +428,13 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Checking TLD
-   
-    if WebTools.ValidTLD(URL='www.google.com') == True:
+Checking TLD:
     
-<i>
-<br />
-</i>
+    if WebTools.ValidTLD(URL='www.google.com') == True:
 
 **Example**
     
@@ -518,11 +446,7 @@ Checking TLD
         print('TLDS is valid')
     else:
         print('TLDS is invalid')
-        
-<i>
-    <br />
-    <br />
-</i>
+
 
 ### RefactorHTTP
 
@@ -534,17 +458,13 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Refactor URL
+Refactor URL:
 
     URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -555,12 +475,7 @@ Refactor URL
 
     URLHTTP = WebTools.RefactorHTTP(URL='www.google.com')
 
-    print(f"URL Refactored to HTTP: {URLHTTP}")  # Will print: URL Refactored to HTTP: http://www.google.comv
-
-<i>
-    <br />
-    <br />
-</i>
+    print(f"URL Refactored to HTTP: {URLHTTP}")
 
 ### RefactorHTTPS
 
@@ -572,17 +487,13 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Refactor URL
+Refactor URL:
 
     URLHTTPS = WebTools.RefactorHTTPS(URL='www.google.com')
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -593,14 +504,10 @@ Refactor URL
 
     URLHTTPS = WebTools.RefactorHTTPS(URL='www.google.com')
 
-    print(f"URL Refactored to HTTPS: {URLHTTPS}") # Will print: URL Refactored to HTTPS: https://www.google.com
+    print(f"URL Refactored to HTTPS: {URLHTTPS}")
 
-<i>
-    <br />
-    <br />
-</i>
 
-### HTTPcheck
+## HTTPcheck
 
 Refactors a given URL to a http version and checks if it's valid
 
@@ -610,17 +517,13 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Check if http is valid
+Check if http is valid:
 
     if WebTools.HTTPcheck(URL='www.google.com') == True:
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -631,12 +534,8 @@ Check if http is valid
     if WebTools.HTTPcheck(URL='www.google.com') == True:
         print('HTTP is Valid')
 
-<i>
-    <br />
-    <br />
-</i>
 
-### HTTPScheck
+## HTTPScheck
 
 Refactors a given URL to a https version and checks if it's valid
 
@@ -646,17 +545,13 @@ URL: Any URL
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Check if http is valid
+Check if http is valid:
 
     if WebTools.HTTPScheck(URL='www.google.com') == True:
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -667,31 +562,22 @@ Check if http is valid
     if WebTools.HTTPScheck(URL='www.google.com') == True:
         print('HTTP is Valid')
 
-<i>
-    <br />
-    <br />
-</i>
-
-### RequestHeaders
+## RequestHeaders
 
 Basic headers for making web requests
 
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
-Make web request
+Make web request:
 
-    import requests # Any web request lib will work as long as it supports headers
+    import requests # Any web request lib will work aslong as it supports headers
  
     r = requests.get("www.google.com", headers=WebTools.RequestHeaders)
-    
-<i>
-<br />
-</i>
 
 **Example**
 
@@ -708,9 +594,10 @@ Make web request
 <i>
     <br />
     <br />
+    <br />
 </i>
 
-### StatusCodes
+## StatusCodes
 
 This module consist of http/https status codes sorted by category for handling web request responses
 
@@ -724,7 +611,7 @@ This module consist of http/https status codes sorted by category for handling w
 
 **Usage**
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     WebTools = WebTools.WebTools()
 
@@ -736,9 +623,6 @@ Calling Category's
     WebTools.StatusCodes.ClientError
     WebTools.StatusCodes.ServerError
     
-<i> 
-<br />
-</i>
 
 **Example**
 
@@ -757,23 +641,21 @@ Calling Category's
 <i>
 <br \>
 <br \>
-<br \>
 </i>
 
 ## TextSets
 
 This module contains list of words/charters that can be used for filtering.
 
-The text sets currently included
+The text sets currently included are:
 
 - Special Characters 
 - Cuss Words
 
 I plan on adding many more in the future.
 
-<i>
-<br \>
-</i>
+
+
 
 **Usage**
 
@@ -781,7 +663,7 @@ I plan on adding many more in the future.
 
     from PyEnhance import TextSets
 
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     TextSet = TextSets.TextSet
 
@@ -789,14 +671,10 @@ Calling text sets
 
     TextSet.SpecialCharacters
     TextSet.CussWords
-    
-<i>
-<br />
-</i>
 
 **Examples**
 
-    from PyEnhance import TextSets
+    from PyPiFiles import TextSets
 
     TextSet = TextSets.TextSet
     
@@ -804,16 +682,17 @@ Calling text sets
     TestList = [0,1,2,'!']
     
     for i in (TextSet.SpecialCharacters):
-    if i in TestList:
-    print(f'Word Found: {i} at index {TestList.index(i)}')
+        if i in TestList:
+            print(f'Special Character Found: {i} at index {TestList.index(i)}')
     
 
     TestList2 = ['John', "Bob", "ass", "Chris", "BigAss"]
     
     for badword in (TextSet.CussWords):
-    for word in TestList2:
-    if badword in word.lower():
-    print(f"Word Found: {badword} In {word}")
+        for word in TestList2:
+
+            if badword in word.lower():
+                print(f"Word Found: {badword} In {word}")
 
 
 <i>
@@ -830,21 +709,17 @@ This module like the name implies is a counter.
 
 **Importing the library**
 
-    from PyEnhance import Counter
+    from PyPiFiles import Counter
 
-<i>
-<br \>
-</i>
-
-Set alies for easy usage and readability
+Set alies for easy usage and readability:
 
     Counter1 = Counter.Counter()  # Alies name can not be Counter
 
-Adding to the counter
+To add to the counter do 
     
     Counter1.Add()
 
-Getting the current total
+To get the current total do
 
     Total = Counter1.Total
 
@@ -852,23 +727,21 @@ or
 
     print(Counter1.Total
 
-<i>
-<br />
-</i>
 
 **Example**
 
-    from PyEnhance import Counter
+    from PyPiFiles import Counter
     
     Counter1 = Counter.Counter()
     Counter2 = Counter.Counter()
     
     for i in range(10):
-    Counter1.Add()
+        Counter1.Add()
+
     print(Counter1.Total)
     
-    
     for i in range(10):
-    Counter2.Add()
+        Counter2.Add()
+
     print(Counter2.Total)
     
