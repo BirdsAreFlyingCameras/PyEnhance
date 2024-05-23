@@ -74,7 +74,7 @@ class Loading:
 
 
 
-    def BarStart(self, PrintSpeed:int, Ascii:bool=False):
+    def BarStart(self, PrintSpeed:int, Ascii:bool=False, Style:str=None):
 
         columns = shutil.get_terminal_size()
 
@@ -97,53 +97,57 @@ class Loading:
 
                 if self.StopFlag:
                     break
-                if Ascii == False:
+
+                if Style == "Connected":
+                    print('█', end="", flush=True)
+                    time.sleep(PrintSpeed)
+                elif Ascii is False:
                     print('▍', end="", flush=True)
                     time.sleep(PrintSpeed)
                 else:
                     print('|', end="", flush=True)
                     time.sleep(PrintSpeed)
 
-            for i in Buffer:
 
+
+            for i in Buffer:
                 if self.StopFlag:
                     break
-
                 print(f'{i}', end="", flush=True)
                 time.sleep(PrintSpeed)
-
             for i in Text:
-
                 if self.StopFlag:
                     break
-
                 print(f"{i}", end="", flush=True)
                 time.sleep(PrintSpeed)
-
             for i in Buffer:
                 if self.StopFlag:
                     break
-
                 print(f'{i}', end="", flush=True)
                 time.sleep(PrintSpeed)
+
+
 
             for _ in range(int(SidesWidth / 2)):
 
                 if self.StopFlag:
                     break
 
-                if Ascii == False:
+                if Style == "Connected":
+                    print('█', end="", flush=True)
+                    time.sleep(PrintSpeed)
+                elif Ascii is False:
                     print('▍', end="", flush=True)
                     time.sleep(PrintSpeed)
                 else:
                     print('|', end="", flush=True)
                     time.sleep(PrintSpeed)
 
-            Buffer = ' ' * 4
 
+            Buffer = ' ' * 4
             NewRange = Width + len(Buffer * 2)
 
-            for i in range(int(NewRange)):
+            for _ in range(int(NewRange)):
 
                 if self.StopFlag:
                     break
@@ -152,10 +156,10 @@ class Loading:
                 sys.stdout.flush()
                 time.sleep(PrintSpeed)
 
-    def Bar(self, PrintSpeed:int, Ascii:bool=False):
+    def Bar(self, PrintSpeed:int or float, Ascii:bool=False, Style:str=None):
 
         if self.thread is None or not self.BarStart:
-            self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed, Ascii))
+            self.thread = t.Thread(target=self.BarStart, args=(PrintSpeed, Ascii, Style))
             self.thread.start()
 
 
