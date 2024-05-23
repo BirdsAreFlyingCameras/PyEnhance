@@ -1,5 +1,13 @@
 Dev
 
-- Added option for either Ascii or Unicode for the loading indicators.
-- Added option for color to loading module Spin
-- Added Unicode option to Banners module
+ - Added Unicode option to Banners module
+
+ - Added type annotation to some functions
+
+ - Cleaned up the code a little bit
+
+ - Started working on bounce loading animation
+
+ - Added Connected style to bar loading
+
+ - Added Currency Symbols to TextSets
