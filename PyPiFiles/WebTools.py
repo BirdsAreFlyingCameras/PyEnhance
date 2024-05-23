@@ -71,7 +71,7 @@ class WebTools:
         else:
             return True
 
-    def RefactorHTTP(self, URL=None):
+    def RefactorHTTP(self, URL:str):
 
         if URL.endswith("/"):  # Checks if the URL ends with a forward slash
             URL = URL[:-1]  # Removes the forward slash from the URL
@@ -89,7 +89,7 @@ class WebTools:
 
         return self.URLHTTP
 
-    def RefactorHTTPS(self, URL=None):  # defines the refactor function and passes the URL variable as a parameter
+    def RefactorHTTPS(self, URL:str):  # defines the refactor function and passes the URL variable as a parameter
 
         if URL.endswith("/"):  # Checks if the URL ends with a forward slash
             URL = URL[:-1]  # Removes the forward slash from the URL
@@ -107,6 +107,18 @@ class WebTools:
                 self.URLHTTPS = f"https://{URL}"
 
         return self.URLHTTPS
+
+
+    def StripHTTP(self, URL:str):
+        if URL.startswith("http://"):
+            URL = URL.replace("http://", "")
+        return URL
+
+
+    def StripHTTPS(self, URL:str):
+        if URL.startswith("https://"):
+            URL = URL.replace("https://", "")
+        return URL
 
     def HTTPcheck(self, URL=None):
 
