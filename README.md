@@ -13,3 +13,5 @@ Dev
  - Added Currency Symbols to TextSets
 
  - Added Strip HTTP and Strip HTTPS to WebTools
+
+ - Added Retro style to Spin loading indicator
