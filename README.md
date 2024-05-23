@@ -11,3 +11,5 @@ Dev
  - Added Connected style to bar loading
 
  - Added Currency Symbols to TextSets
+
+ - Added Strip HTTP and Strip HTTPS to WebTools
