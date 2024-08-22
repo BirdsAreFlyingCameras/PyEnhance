@@ -1,4 +1,3 @@
-=
 # PyEnhance
 
 ## Overview
