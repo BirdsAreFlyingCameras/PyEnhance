@@ -1,7 +1,7 @@
 import time
 import threading
 
-def TimeFormat(Counter=None, Form=None):
+def TimeFormat(Counter:list or int, Form:str="Long"):
 
     Counter = Counter[0] / 60 # Divides the int representing the time elapsed in seconds stored in the Counter list at index 0 by 60 turning it to a float type
     Counter = str(Counter)
@@ -149,8 +149,6 @@ class Timer:
         self.stop_flag = True
         self.thread = None
         self.counter = 0
-        self.Stamps = None
-
         self.Form = None
 
     def counterlist(self):

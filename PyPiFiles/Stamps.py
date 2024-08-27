@@ -34,6 +34,7 @@ class Stamp(Enum):
         return self.value
 
 
+
 # Currently Testing
 #Info = Stamp.Info
 #Warn = Stamp.Warn

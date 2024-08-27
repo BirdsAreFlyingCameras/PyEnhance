@@ -1,5 +1,4 @@
 import requests as r
-import socket as s
 
 class DotDict:
     def __init__(self, dictionary):
@@ -13,6 +12,24 @@ class DotDict:
 
 
 # You can add more functions or classes here if needed
+
+def FetchTLDs() -> list:
+
+    RequestHeaders = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Connection': 'keep-alive',
+    }
+
+    TLDSs = "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+    response = r.get(TLDSs, headers=RequestHeaders)
+    response.raise_for_status()
+
+    # The file uses line breaks for each TLD, and we filter out comments which start with '#'
+    TLDs = [line.strip().lower() for line in response.text.splitlines() if not line.startswith('#')]
+
+    return TLDs
 
 
 class WebTools:
@@ -28,40 +45,26 @@ class WebTools:
             'Connection': 'keep-alive',
         }
 
-        self.URLHTTP = str
-        self.URLHTTPS = str
-
     class StatusCodes:
         def __init__(self):
             self.Informational = [100, 101, 102, 103]
             self.Success = [200, 201, 202, 203, 204, 205, 206, 207, 208, 226]
             self.Redirection = [300, 301, 302, 303, 304, 305, 306, 307, 308]
-            self.ClientError = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417,
-                                418, 421, 422, 423, 424, 425, 426, 428, 429, 431, 451]
+            self.ClientError = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413,
+                                414, 415, 416, 417,418, 421, 422, 423, 424, 425, 426, 428, 429, 431, 451]
             self.ServerError = [500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511]
 
 
-    def FetchTLDs(self):
-
-        self.TLDSs = "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
-        response = r.get(self.TLDSs, headers=self.RequestHeaders)
-        response.raise_for_status()
-
-        # The file uses line breaks for each TLD, and we filter out comments which start with '#'
-        self.TLDS = [line.strip().lower() for line in response.text.splitlines() if not line.startswith('#')]
-
-    def ValidTLD(self, URL=None):
-
-        self.FetchTLDs()
+    def ValidTLD(self, URL:str) -> bool:
 
         TLDSValid = False
 
         if URL.endswith("/"):
             URL = URL[:-1]
-
         URLTLDS = URL[URL.rindex('.')+1:]
 
-        for i in self.TLDS:
+        TLDsList = FetchTLDs()
+        for i in TLDsList:
             if URLTLDS == i:
                 TLDSValid = True
                 break
@@ -71,7 +74,8 @@ class WebTools:
         else:
             return True
 
-    def RefactorHTTP(self, URL:str):
+
+    def RefactorHTTP(self, URL:str) -> str:
 
         if URL.endswith("/"):  # Checks if the URL ends with a forward slash
             URL = URL[:-1]  # Removes the forward slash from the URL
@@ -79,17 +83,17 @@ class WebTools:
         for i in "https://", "http://":
             if URL.startswith(i):
                 if i == "https://":
-                    self.URLHTTP = URL.replace("https://", "http://")
+                    URLHTTP = URL.replace("https://", "http://")
 
                 if i == "http//":
-                    self.URLHTTP = URL
+                    URLHTTP = URL
                 break
             else:
-                self.URLHTTP = f"http://{URL}"
+                URLHTTP = f"http://{URL}"
 
-        return self.URLHTTP
+        return URLHTTP
 
-    def RefactorHTTPS(self, URL:str):  # defines the refactor function and passes the URL variable as a parameter
+    def RefactorHTTPS(self, URL:str) -> str:  # defines the refactor function and passes the URL variable as a parameter
 
         if URL.endswith("/"):  # Checks if the URL ends with a forward slash
             URL = URL[:-1]  # Removes the forward slash from the URL
@@ -97,51 +101,48 @@ class WebTools:
         for i in "https://", "http://":
             if URL.startswith(i):
                 if i == "https://":
-                    self.URLHTTPS = URL
+                    URLHTTPS = URL
 
                 if i == "http//":
-                    self.URLHTTPS = URL.replace("http://", "https://")
+                    URLHTTPS = URL.replace("http://", "https://")
 
                 break
             else:
-                self.URLHTTPS = f"https://{URL}"
+                URLHTTPS = f"https://{URL}"
 
-        return self.URLHTTPS
+        return URLHTTPS
 
 
-    def StripHTTP(self, URL:str):
+    def StripHTTP(self, URL:str) -> str:
         if URL.startswith("http://"):
             URL = URL.replace("http://", "")
         return URL
 
 
-    def StripHTTPS(self, URL:str):
+    def StripHTTPS(self, URL:str) -> str:
         if URL.startswith("https://"):
             URL = URL.replace("https://", "")
         return URL
 
-    def HTTPcheck(self, URL=None):
 
-        self.RefactorHTTP(URL=URL)
+    def HTTPcheck(self, URL:str) -> bool:
 
-        URL = self.URLHTTP
+        URL = self.RefactorHTTP(URL=URL)
 
         GetReqStatus = r.get(url=URL, headers=self.RequestHeaders)
 
-        if GetReqStatus.status_code in self.PositiveStatusCodes:
+        if GetReqStatus.status_code not in self.StatusCodes.ClientError and GetReqStatus.status_code not in self.StatusCodes.ServerError:
             return True
         else:
             return False
 
-    def HTTPScheck(self, URL=None):
+    def HTTPScheck(self, URL:str) -> bool:
 
-        self.RefactorHTTPS(URL=URL)
-
-        URL = self.URLHTTPS
+        URL = self.RefactorHTTPS(URL=URL)
 
         GetReqStatus = r.get(url=URL, headers=self.RequestHeaders)
 
-        if GetReqStatus.status_code == 200:
+        if GetReqStatus.status_code not in self.StatusCodes.ClientError and GetReqStatus.status_code not in self.StatusCodes.ServerError:
             return True
         else:
             return False

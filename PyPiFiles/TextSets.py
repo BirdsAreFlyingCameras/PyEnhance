@@ -64,12 +64,15 @@ class TextSet:
         "wankjob", "wetback", "whore", "whorebag", "whoreface", "wop"
     ]
 
-
     CurrencySymbols = ["Lek", "؋", "$", "ƒ", "₼", "Br", "BZ$", "$b", "KM", "P", "лв", "R$", "៛",
                        "¥", "₡", "kn", "₱", "Kč", "kr", "RD$", "€", "£", "¢", "Q", "L", "Ft", "Rp",
                        "﷼", "₪", "J$", "₩", "₭", "ден", "RM", "Rs", "MT", "C$", "Kr", "B/.", "Gs",
                        "S/.", "zł", "lei", "₽", "Дин.", "CHF", "NT$", "฿", "TT$", "$U", "Bs", "₫", "Z$",
                        ]
+
+
+
+
 
 """
 
